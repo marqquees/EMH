@@ -1,0 +1,43 @@
+name: Compilar e Implementar uma Aplicação Python na Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Configurar o Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Instalar Dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Compactar o Artefacto para Implementação
+        run: zip release.zip ./* -r
+      - name: Carregar Artefato para Tarefas de Implementação
+        uses: actions/upload-artifact@v7
+        with:
+          name: python-app
+          path: release.zip
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Descarregar o Artefacto da Tarefa de Compilação
+        uses: actions/download-artifact@v8
+        with:
+          name: python-app
+      - name: Descompactar o Artefacto para Implementação
+        run: unzip release.zip
+      - name: Implementar no Azure Web App
+        uses: azure/webapps-deploy@v2.2.19
+        with:
+          app-name: 'emh-web'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}

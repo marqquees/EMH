@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %} <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+      <a class="nav-logo" href="#">Harmonia <span>Música</span></a>
+      <ul class="nav-links">
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#professores">Professores</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn-login" href="#">Área de Alunos</a>
+        <a class="btn-primary" href="#">Inscrição</a>
+      </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-brand">Escola de Música Harmonia</div>
+      <p class="footer-copy">© 2026 · Escola de Música Harmonia</p>
+      <ul class="footer-links">
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Área de Alunos</a></li>
+      </ul>
+    </footer>
+</body>
+</html>

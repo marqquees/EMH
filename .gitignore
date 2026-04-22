@@ -1,0 +1,18 @@
+# Ficheiros de Cache do Python
+*.pyc
+*__pycache__*
+
+# Ficheiros SQLite
+*.sqlite3
+*.db
+
+# Diretorio de Ficheiros do Ambiente Virtual
+.venv/
+venv/
+.env
+
+# Diretorio de Ficheiros Estáticos
+staticfiles/
+
+# Ficheiros PyCharm
+.idea/
