@@ -1,5 +1,5 @@
 # Usa uma imagem oficial do Python.
-FROM python:3.9.6-slim
+FROM python:3.14.5-slim
 
 # Impede que o Python grave arquivos .pyc e força o log a aparecer no terminal.
 ENV PYTHONUNBUFFERED True
