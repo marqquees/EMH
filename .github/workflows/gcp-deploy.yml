@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout to Code
-      uses: actions/checkout@v6
+      uses: actions/checkout@v6.0.2
 
     - name: Authentication in Google Cloud
       uses: google-github-actions/auth@v3
@@ -18,7 +18,7 @@ jobs:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
     - name: Set up the gcloud CLI
-      uses: google-github-actions/setup-gcloud@v3
+      uses: google-github-actions/setup-gcloud@v3.0.1
 
     - name: Deploy to Cloud Run
       run: |
