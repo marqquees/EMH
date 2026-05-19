@@ -27,4 +27,4 @@ jobs:
           --set-env-vars DATABASE_URL="${{ secrets.DATABASE_URL }}" \
           --allow-unauthenticated \
           --region us-east1 \
-          --project apps-prod-494614
+          --project ${{ secrets.GCP_PROJECT_ID }}
