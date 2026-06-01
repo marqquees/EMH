@@ -1,240 +1,185 @@
-{% extends "emh/base.html" %}
+{% extends "emh/../base_generic.html" %}
 
 {% block title %}EMH{% endblock %}
 
 {% block content %}
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Cidade da Maia · Fundada em 2011</p>
-    <h1 class="hero-title">A <em>música</em><br>que transforma</h1>
-    <p class="hero-body">
-      Ensino musical de excelência para todas as idades. Dos primeiros acordes
-      à performance em palco, acompanhamos cada aluno com dedicação e rigor.
-    </p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#cursos">Conhecer Cursos</a>
-      <a class="btn-login" href="#contacto">Agendar Visita</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-quote">
-      <blockquote>
-        "A música não precisa de tradução — fala diretamente à alma."
-      </blockquote>
-      <cite>Prof. Anabela Ferreira — Diretora Pedagógica</cite>
-      <div class="hero-stat-row">
-        <div>
-          <span class="hero-stat-num">90+</span>
-          <span class="hero-stat-label">Alunos ativos</span>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-left">
+            <p class="hero-eyebrow">Cidade da Maia · Fundada em 2011</p>
+            <h1 class="hero-title">A <em>música</em><br>que transforma</h1>
+            <p class="hero-body">
+                Ensino musical de excelência para todas as idades. Dos primeiros acordes
+                à performance em palco, acompanhamos cada aluno com dedicação e rigor.
+            </p>
+            <div class="hero-actions">
+                <a class="btn-primary" href="#course">Conhecer Cursos</a>
+                <a class="btn-login" href="#contact">Agendar Visita</a>
+            </div>
         </div>
-        <div>
-          <span class="hero-stat-num">6</span>
-          <span class="hero-stat-label">Professores</span>
+        <div class="hero-right">
+            <div class="hero-quote">
+                <blockquote>
+                    "A música não precisa de tradução — fala diretamente à alma."
+                </blockquote>
+                <cite>Prof. Anabela Ferreira — Diretora Pedagógica</cite>
+                <div class="hero-stat-row">
+                    <div>
+                        <span class="hero-stat-num">90+</span>
+                        <span class="hero-stat-label">Alunos ativos</span>
+                    </div>
+                    <div>
+                        <span class="hero-stat-num">6</span>
+                        <span class="hero-stat-label">Professores</span>
+                    </div>
+                    <div>
+                        <span class="hero-stat-num">14</span>
+                        <span class="hero-stat-label">Anos de ensino</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <span class="hero-stat-num">14</span>
-          <span class="hero-stat-label">Anos de ensino</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- CURSOS -->
-<section class="courses" id="cursos">
-  <div class="course-header">
-    <div>
-      <p class="section-label">O que ensinamos</p>
-      <h2 class="section-title">Os nossos <em>cursos</em></h2>
-    </div>
-    <a class="btn-login" href="#contacto">Ver todos</a>
-  </div>
-  <div class="course-grid">
-    <div class="course-card">
-        <div class="course-icon">♩</div>
-        <h3 class="course-title">Iniciação Musical</h3>
-        <p class="course-age">A partir dos 7 anos</p>
-        <p class="course-desc">
-            Primeiros passos no mundo da música. Teoria, ritmo e sensibilidade musical de forma lúdica e progressiva.
-        </p>
-        <a class="course-link" href="#">Saber mais</a>
-    </div>
-    <div class="course-card">
-      <div class="course-icon">♪</div>
-      <h3 class="course-title">Piano Clássico</h3>
-      <p class="course-age">Todos os níveis</p>
-      <p class="course-desc">
-          Do repertório barroco ao romântico. Técnica rigorosa e expressividade musical com professores especializados.
-      </p>
-      <a class="course-link" href="#">Saber mais</a>
-    </div>
-    <div class="course-card">
-      <div class="course-icon">♫</div>
-      <h3 class="course-title">Violino</h3>
-      <p class="course-age">A partir dos 7 anos</p>
-      <p class="course-desc">
-          Aprendizagem progressiva da técnica de arco e postura. Integração no ensemble da escola ao fim do 1.º ano.
-      </p>
-      <a class="course-link" href="#">Saber mais</a>
-    </div>
-    <div class="course-card">
-      <div class="course-icon">♬</div>
-      <h3 class="course-title">Canto Lírico</h3>
-      <p class="course-age">A partir dos 14 anos</p>
-      <p class="course-desc">
-          Técnica vocal, respiração, dicção e interpretação. Preparação para audições e concursos regionais.
-      </p>
-      <a class="course-link" href="#">Saber mais</a>
-    </div>
-    <div class="course-card">
-      <div class="course-icon">𝄞</div>
-      <h3 class="course-title">Teoria Musical</h3>
-      <p class="course-age">Complementar</p>
-      <p class="course-desc">
-          Solfejo, harmonia e análise musical. Indispensável para quem quer uma formação completa e sólida.
-      </p>
-      <a class="course-link" href="#">Saber mais</a>
-    </div>
-    <div class="course-card">
-      <div class="course-icon">♩</div>
-      <h3 class="course-title">Curso para Adultos</h3>
-      <p class="course-age">Sem limite de idade</p>
-      <p class="course-desc">
-          Nunca é tarde para aprender. Horários flexíveis e metodologia adaptada ao ritmo de cada adulto.
-      </p>
-      <a class="course-link" href="#">Saber mais</a>
-    </div>
-  </div>
-</section>
+    <!-- COURSE -->
+    <section class="course" id="course">
+        <div class="course-header">
+            <div>
+                <p class="section-label">O que ensinamos</p>
+                <h2 class="section-title">Os nossos <em>cursos</em></h2>
+            </div>
+        </div>
+        <div class="course-grid">
+            {% for course in courses %}
+                <div class="course-card">
+                    <div class="course-icon">{{ course.icon }}</div>
+                    <h3 class="course-title">{{ course.title }}</h3>
+                    <p class="course-age">{{ course.age_group }}</p>
+                    <p class="course-desc">{{ course.description|truncatewords:20 }}</p>
+                    <a class="course-link" href="{% url 'course_detail' course.id %}">Saber mais</a>
+                </div>
+            {% empty %}
+                <p style="color: #4A3728; font-size: 0.9rem;">
+                    Nenhum curso disponível no momento. Por favor, volte mais tarde.
+                </p>
+            {% endfor %}
+        </div>
+    </section>
 
-<!-- PROFESSORES -->
-<section class="teachers" id="professores">
-  <p class="section-label">Quem nos guia</p>
-  <h2 class="section-title">Os nossos <em>professores</em></h2>
-  <div class="teach-grid">
-    <div class="teach-card">
-      <div class="teach-avatar">AF</div>
-      <h3 class="teach-name">Prof. Anabela Ferreira</h3>
-      <p class="teach-area">Diretora · Piano</p>
-      <p class="teach-bio">
-          Licenciada em Piano pelo Conservatório do Porto. Mais de 20 anos de experiência no ensino musical e fundadora da escola.
-      </p>
-    </div>
-    <div class="teach-card">
-      <div class="teach-avatar">RC</div>
-      <h3 class="teach-name">Prof. Rui Cardoso</h3>
-      <p class="teach-area">Violino</p>
-      <p class="teach-bio">
-          Formado pela ESMAE. Membro da Orquestra Sinfónica do Porto e docente especializado em pedagogia de cordas.
-      </p>
-    </div>
-    <div class="teach-card">
-      <div class="teach-avatar">MS</div>
-      <h3 class="teach-name">Prof. Marta Silva</h3>
-      <p class="teach-area">Canto · Teoria Musical</p>
-      <p class="teach-bio">
-          Soprano lírica com carreira internacional. Mestre em Educação Musical pela Universidade de Aveiro.
-      </p>
-    </div>
-  </div>
-</section>
+    <!-- TEACHER -->
+    <section class="teacher" id="teacher">
+        <p class="section-label">Quem nos guia</p>
+        <h2 class="section-title">Os nossos <em>professores</em></h2>
+        <div class="teach-grid">
+            {% for teacher in teachers %}
+                <div class="teach-card">
+                    <div class="teach-avatar">
+                        {% if teacher.avatar %}
+                            <img src="{{ teacher.avatar.url }}"
+                                 alt="{{ teacher.full_name }}"
+                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                        {% else %}
+                            {{ teacher.full_name|make_list|first }}
+                        {% endif %}
+                    </div>
+                    <h3 class="teach-name">Prof. {{ teacher.full_name }}</h3>
+                    <p class="teach-area">{{ teacher.course_taught }}</p>
+                    <p class="teach-area">{{ teacher.training }}</p>
+                </div>
+            {% empty %}
+                <p style="color: #4A3728; font-size: 0.9rem;">
+                    Nenhum professor disponível no momento. Por favor, volte mais tarde.
+                </p>
+            {% endfor %}
+        </div>
+    </section>
 
-<!-- PORTAL ALUNOS -->
-<section class="portal" id="portal">
-  <div class="portal-inner">
-    <div>
-      <p class="section-label">Plataforma digital</p>
-      <h2 class="section-title">Área de <em style="color: var(--brown-lt);">Alunos</em></h2>
-      <p class="portal-body">
-        Acede à tua plataforma pessoal de aprendizagem. Materiais de estudo,
-        partituras, gravações e acompanhamento do teu progresso — tudo num só lugar.
-      </p>
-      <ul class="portal-features">
-        <li>Partituras e materiais de estudo em PDF</li>
-        <li>Gravações das tuas aulas e ensaios</li>
-        <li>Calendário de audições e eventos</li>
-        <li>Comunicação direta com o teu professor</li>
-        <li>Acompanhamento do progresso curricular</li>
-      </ul>
-    </div>
-    <div class="portal-form">
-      <h3 class="form-title">Entrar na plataforma</h3>
-      <p class="form-sub">Acesso exclusivo para alunos inscritos</p>
-      <!-- Django: {% csrf_token %} -->
-      <form method="post" action="/login/">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <!-- Django: {{ form.username }} -->
-          <input type="email" id="email" name="username" placeholder="o teu email" required>
+    <!-- PORTAL ALUNOS -->
+    <section class="student-portal" id="student-portal">
+        <div class="student-portal-inner">
+            <div>
+                <p class="section-label">Plataforma digital</p>
+                <h2 class="section-title">Área de <em style="color: var(--brown-lt);">Alunos</em></h2>
+                <p class="student-portal-body">
+                    Acede à tua plataforma pessoal de aprendizagem. Materiais de estudo,
+                    partituras, gravações e acompanhamento do teu progresso — tudo num só lugar.
+                </p>
+                <ul class="student-portal-features">
+                    <li>Partituras e materiais de estudo em PDF</li>
+                    <li>Gravações das tuas aulas e ensaios</li>
+                    <li>Calendário de audições e eventos</li>
+                    <li>Comunicação direta com o teu professor</li>
+                    <li>Acompanhamento do progresso curricular</li>
+                </ul>
+            </div>
+            <div class="student-portal-form">
+                <h3 class="form-title">Entrar na plataforma</h3>
+                <p class="form-sub">Acesso exclusivo para alunos inscritos</p>
+                {% csrf_token %}
+                <form method="post" action="{% url 'portal_student_login' %}">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" placeholder="o teu email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Palavra-passe</label>
+                        <input id="password" type="password" name="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Entrar na Plataforma</button>
+                </form>
+                <p class="form-recover">
+                    Esqueceste a palavra-passe? <a href="">Recuperar acesso</a>
+                </p>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="password">Palavra-passe</label>
-          <!-- Django: {{ form.password }} -->
-          <input type="password" id="password" name="password" placeholder="••••••••" required>
-        </div>
-        <button type="submit" class="btn-submit">Entrar na Plataforma</button>
-      </form>
-      <p class="form-recover">
-        Esqueceste a palavra-passe? <a href="/recuperar/">Recuperar acesso</a>
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- CONTACTO -->
-<section class="contacto" id="contacto">
-  <p class="section-label">Fala connosco</p>
-  <h2 class="section-title">Inscrição e <em>contacto</em></h2>
-  <div class="contact-grid">
-    <div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📍</div>
-        <div>
-          <p class="contact-info-label">Localização</p>
-          <p class="contact-info-value">Cidade da Maia, Maia<br>Distrito do Porto</p>
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <p class="section-label">Fala connosco</p>
+        <h2 class="section-title">Inscrição e <em>contacto</em></h2>
+        <div class="contact-grid">
+            <div>
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">📍</div>
+                    <div>
+                        <p class="contact-info-label">Localização</p>
+                        <p class="contact-info-value">Cidade da Maia, Maia<br>Distrito do Porto</p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">✉</div>
+                    <div>
+                        <p class="contact-info-label">Email</p>
+                        <p class="contact-info-value">falaconnosco@emh.pt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label>Nome completo</label>
+                        <label>
+                            <input type="text" name="nome" placeholder="Seu nome completo..." required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <label>
+                            <input type="email" name="email" placeholder="Seu email completo..." required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensagem / Curso de interesse</label>
+                        <label>
+                            <textarea name="mensagem" placeholder="Descreva o que procura..." required></textarea>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        Enviar Pedido de Informação
+                    </button>
+                </form>
+            </div>
         </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">✉</div>
-        <div>
-          <p class="contact-info-label">Email</p>
-          <p class="contact-info-value">fala_connosco@emh.pt</p>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">🌐</div>
-        <div>
-          <p class="contact-info-label">Website</p>
-          <p class="contact-info-value">www.escolamusicaharmonia.pt</p>
-        </div>
-      </div>
-    </div>
-    <div class="contact-form">
-      <form method="post" action="/inscricao/">
-        <div class="form-group">
-          <label>Nome completo</label>
-            <label>
-                <input type="text" name="nome" placeholder="Seu nome completo..." required>
-            </label>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-            <label>
-                <input type="email" name="email" placeholder="Seu email completo..." required>
-            </label>
-        </div>
-        <div class="form-group">
-          <label>Mensagem / Curso de interesse</label>
-            <label>
-                <textarea name="mensagem" placeholder="Descreva o que procura..." required></textarea>
-            </label>
-        </div>
-        <button type="submit" class="btn-submit">
-          Enviar Pedido de Informação
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
+    </section>
 {% endblock %}
