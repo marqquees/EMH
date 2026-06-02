@@ -94,7 +94,7 @@
         </div>
     </section>
 
-    <!-- PORTAL ALUNOS -->
+    <!-- STUDENT PORTAL -->
     <section class="student-portal" id="student-portal">
         <div class="student-portal-inner">
             <div>
@@ -105,30 +105,30 @@
                     partituras, gravações e acompanhamento do teu progresso — tudo num só lugar.
                 </p>
                 <ul class="student-portal-features">
-                    <li>Partituras e materiais de estudo em PDF</li>
-                    <li>Gravações das tuas aulas e ensaios</li>
-                    <li>Calendário de audições e eventos</li>
-                    <li>Comunicação direta com o teu professor</li>
-                    <li>Acompanhamento do progresso curricular</li>
+                    <li>Partituras e materiais de estudo em PDF;</li>
+                    <li>Gravações das tuas aulas e ensaios;</li>
+                    <li>Calendário de audições e eventos;</li>
+                    <li>Comunicação direta com o teu professor;</li>
+                    <li>Acompanhamento do progresso curricular.</li>
                 </ul>
             </div>
             <div class="student-portal-form">
                 <h3 class="form-title">Entrar na plataforma</h3>
-                <p class="form-sub">Acesso exclusivo para alunos inscritos</p>
+                <p class="form-sub">Acesso exclusivo para alunos inscritos.</p>
                 {% csrf_token %}
                 <form method="post" action="{% url 'portal_student_login' %}">
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" type="email" name="email" placeholder="o teu email" required>
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Palavra-passe</label>
-                        <input id="password" type="password" name="password" placeholder="••••••••" required>
+                        <input id="password" type="password" name="password" required>
                     </div>
                     <button type="submit" class="btn-submit">Entrar na Plataforma</button>
                 </form>
                 <p class="form-recover">
-                    Esqueceste a palavra-passe? <a href="">Recuperar acesso</a>
+                    Esqueceste a palavra-passe? <a>Recupere o acesso.</a>
                 </p>
             </div>
         </div>
