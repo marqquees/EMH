@@ -1,5 +1,4 @@
 # Ficheiros de Cache do Python
-*.pyc
 *__pycache__*
 
 # Diretorio de Ficheiros do Ambiente Virtual
