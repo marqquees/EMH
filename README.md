@@ -16,7 +16,7 @@ teachers and students.
 ## 🛠️ Technologies Used
 
 * **Python** v3.14.5
-* **Django** v6.0.5
+* **Django** v6.0.6
 * **PostgreSQL** v18.x
 
 ---
