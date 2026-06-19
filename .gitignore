@@ -8,3 +8,6 @@
 
 # Ficheiros PyCharm
 .idea/
+
+# Diretório de Ficheiros Estáticos
+staticfiles/
