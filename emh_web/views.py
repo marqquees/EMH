@@ -1,5 +1,9 @@
+from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, get_object_or_404, redirect
-from emh_web.models import Course, Teacher
+from emh_web.models import Course, Teacher, Account
+from .forms import StudentRegistration
+from django.db import IntegrityError, transaction
+from django.contrib import messages
 
 def home(request):
     course = Course.objects.all()
@@ -7,39 +11,46 @@ def home(request):
     context = {'courses': course, 'teachers': teacher}
     return render(request, 'emh/home.html', context)
 
+
 def course_detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     context = {'course': course}
     return render(request, 'emh/course_detail.html', context)
 
-def enroll_course(request):
+
+def student_registration(request):
     if request.method == 'POST':
-        course_id = request.POST.get('course_id')
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
+        form = StudentRegistration(request.POST)
 
-        # Normalmente guardaria numa base de dados num model como 'Inscricao'
-        # ou enviaria um email (ex: send_mail())
-        print(f"Nova inscrição recebida: {name} ({email}) para o curso {course_id} - {message}")
+        if form.is_valid():
+            try:
+                with transaction.atomic():
+                    user_email = form.cleaned_data.get('email')
+                    user_password = form.cleaned_data.get('password')
 
-        # messages permite adicionar um pop-up na interface
-        # messages.success(request, 'A tua inscrição foi registada com sucesso!')
+                    new_account = Account.objects.create(email=user_email, password=make_password(user_password))
 
-        # Após tratar de um POST, rederecione o utilizador
-        if course_id:
-            return redirect('course_detail', course_id=course_id)
-        return redirect('home')
+                    new_student = form.save(commit=False)
+                    new_student.account = new_account
+                    new_student.save()
 
-    # Caso aceda ao link diretamento (GET), voltamos à página inicial
-    return redirect('home')
+                    selected_courses = request.POST.getlist('courses')
+                    if selected_courses:
+                        new_student.enrolled_courses.set(selected_courses)
 
-def portal_student_login(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+                    messages.success(request,
+                                     "🎉 Matrícula efetuada com sucesso! Bem-vindo a Escola de Música Harmonia.")
 
-        # Aqui normalmente validaria as credenciais do utilizador.
-        print(f"Tentativa de login: {email} - {password}")
+                    return redirect('home')
+            except IntegrityError:
+                form.add_error('email', "Email já existente. Por favor, use um email diferente.")
+            except Exception as e:
+                print(f"{e}")
+                form.add_error(None, "Erro interno do sistema durante o salvamento.")
+        else:
+            pass
+    else:
+        form = StudentRegistration()
 
-    return redirect('home')
+    context = {'courses': Course.objects.all(), 'form': form}
+    return render(request, 'emh/student_registration.html', context)
