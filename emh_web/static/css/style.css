@@ -468,6 +468,11 @@ section {
     padding: 3rem;
 }
 
+.student-portal-registration-section {
+    padding-top: 120px;
+}
+
+/* ── LOGIN AND REGISTRATION FORM ── */
 .form-title {
     font-family: var(--font-serif), serif;
     font-size: 1.8rem;
@@ -544,6 +549,23 @@ section {
 
 .form-recover a:hover {
     text-decoration: underline;
+}
+
+.form-grid-two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.form-checkbox-group-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.form-grid-two-col .form-group {
+    margin-bottom: 0;
 }
 
 /* ── CONTACT ── */
