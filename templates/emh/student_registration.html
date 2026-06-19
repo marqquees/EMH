@@ -1,0 +1,197 @@
+{% extends "emh/../base_generic.html" %}
+
+{% block title %}Inscrição do Aluno - EMH{% endblock %}
+
+{% block content %}
+<section class="contact student-portal-registration-section">
+    <div class="contact-grid form-content-wrapper">
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p class="section-label">Junta-te a nós</p>
+            <h2 class="section-title">Ficha de <em>Inscrição</em></h2>
+            <p class="student-portal-body" style="color: #4A3728;">
+                Preenche a tua ficha de aluno para efetivares a matrícula.
+            </p>
+        </div>
+
+        <!-- FORM -->
+        <div class="contact-form">
+            {% if messages %}
+            <div style="padding: 1rem; margin-bottom: 20px; border: 1px solid; background-color: var(--white); color: green;">
+                {% for message in messages %}
+                <p style="margin: 0;">{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="post" action="{% url 'student_registration' %}">
+                {% csrf_token %}
+
+                <h3 class="form-title">Dados Cadastrais</h3>
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                        {{ form.email.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">Palavra-Passe</label>
+                    {{ form.password }}
+                    {% if form.password.errors %}
+                    <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                        {{ form.password.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <h3 class="form-title">Dados Pessoais</h3>
+                <!-- FULL NAME -->
+                <div class="form-group">
+                    <label for="{{ form.full_name.id_for_full_name }}">Nome completo</label>
+                    {{ form.full_name }}
+                    {% if form.full_name.errors %}
+                    <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                        {{ form.full_name.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group form-grid-two-col">
+                    <!-- AGE -->
+                    <div class="form-group">
+                        <label for="{{ form.age.id_for_label }}">Idade</label>
+                        {{ form.age }}
+                        {% if form.age.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.age.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- SEX -->
+                    <div class="form-group">
+                        <label for="{{ form.sex.id_for_label }}">Sexo</label>
+                        {{ form.sex }}
+                        {% if form.sex.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.sex.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- NIF -->
+                    <div class="form-group">
+                        <label for="{{ form.nif.id_for_label }}">NIF</label>
+                        {{ form.nif }}
+                        {% if form.nif.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.nif.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- CITIZEN CARD NUMBER -->
+                    <div class="form-group">
+                        <label for="{{ form.citizen_card_number.id_for_label }}">Cartão de Cidadão</label>
+                        {{ form.citizen_card_number }}
+                        {% if form.citizen_card_number.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.citizen_card_number.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <h3 class="form-title">Morada</h3>
+                <!-- STREET -->
+                <div class="form-group">
+                    <label for="{{ form.street.id_for_label }}">Rua</label>
+                    {{ form.street }}
+                    {% if form.street.errors %}
+                    <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                        {{ form.street.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group form-grid-two-col">
+                    <!-- NUMBER -->
+                    <div class="form-group">
+                        <label for="{{ form.number.id_for_label }}">Número</label>
+                        {{ form.number }}
+                        {% if form.number.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.number.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- FLOOR -->
+                    <div class="form-group">
+                        <label for="{{ form.floor.id_for_label }}">Piso</label>
+                        {{ form.floor }}
+                        {% if form.floor.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.floor.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- MUNICIPALITY -->
+                    <div class="form-group">
+                        <label for="{{ form.municipality.id_for_label }}">Concelho</label>
+                        {{ form.municipality }}
+                        {% if form.municipality.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.municipality.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- DISTRICT -->
+                    <div class="form-group">
+                        <label for="{{ form.district.id_for_label }}">Distrito</label>
+                        {{ form.district }}
+                        {% if form.district.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.district.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- POST CODE -->
+                    <div class="form-group">
+                        <label for="{{ form.postcode.id_for_label }}">Código Postal</label>
+                        {{ form.postcode }}
+                        {% if form.postcode.errors %}
+                        <div style="color: red; font-size: 0.9rem; margin-top: 0.25rem;">
+                            {{ form.postcode.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <h3 class="form-title">Cursos</h3>
+                <!-- LIST OF COURSES -->
+                <div class="form-group form-checkbox-group-container">
+                    <label>Selecione os cursos dos quais queres matricular:</label>
+                    {% for course in courses %}
+                    <label
+                            style="display: flex; align-items: center; gap: 0.5rem; text-transform: none; font-size: 0.9rem; color: #4A3728; letter-spacing: normal;">
+                        <input type="checkbox" name="courses" value="{{ course.id }}" style="width: auto;">
+                        {{ course.title }} ({{ course.age_group }})
+                    </label>
+                    {% empty %}
+                    <p style="color: #4A3728; font-size: 0.9rem;">Nenhum curso disponível no momento.</p>
+                    {% endfor %}
+                </div>
+
+                <!-- SUBMIT -->
+                <button type="submit" class="btn-submit">Confirmar Ficha de Aluno</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
