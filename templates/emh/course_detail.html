@@ -83,7 +83,7 @@
                 </p>
             </div>
             <div class="contact-form">
-                <form method="post" action="{% url 'enroll_course' %}">
+                <form method="post">
                     {% csrf_token %}
                     <input type="hidden" name="curso_id" value="{{ course.id }}">
                     <div class="form-group">
