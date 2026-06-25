@@ -3,106 +3,57 @@
 {% block title %}{{ course.title }} - EMH{% endblock %}
 
 {% block content %}
-    <section class="hero">
-        <div class="hero-left">
-            <p class="hero-eyebrow">
-                <a class="course-link" href="{% url 'home' %}#courses">&larr; Voltar aos Cursos</a>
-            </p>
-            <h1 class="hero-title"><em>{{ course.title }}</em></h1>
-            <p class="course-age">{{ course.age_group }}</p>
-            <p class="hero-body">{{ course.description }}</p>
-            <div class="hero-actions">
-                <a class="btn-primary" href="#registration">Fazer inscrição</a>
-            </div>
+<section class="hero">
+    <div class="hero-left">
+        <p class="hero-eyebrow">
+            <a class="course-link" href="{% url 'home' %}#courses">&larr; Voltar aos Cursos</a>
+        </p>
+        <h1 class="hero-title"><em>{{ course.title }}</em></h1>
+        <p class="course-age">{{ course.age_group }}</p>
+        <p class="hero-body">{{ course.description }}</p>
+        <div class="hero-actions">
+            <a class="btn-primary" href="{% url 'student_registration' %}">Fazer inscrição</a>
         </div>
-        <div class="hero-right"
-             style="min-height: auto; display: flex; justify-content: center; align-items: center; padding: 4rem;">
-            <div class="course-icon"
-                 style="font-size: clamp(6rem, 10vw, 12rem); color: var(--brown-pl); opacity: 0.8; margin: 0;">
-                {{ course.icon }}
-            </div>
+    </div>
+    <div class="hero-right"
+         style="min-height: auto; display: flex; justify-content: center; align-items: center; padding: 4rem;">
+        <div class="course-icon"
+             style="font-size: clamp(6rem, 10vw, 12rem); color: var(--brown-pl); opacity: 0.8; margin: 0;">
+            {{ course.icon }}
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="course">
-        <div class="student-portal-inner">
-            <div>
-                <p class="section-label">Sobre o Curso</p>
-                <h2 class="section-title">Programa e <em>Detalhes</em></h2>
-                <div class="student-portal-body" style="color: #4A3728;">{{ course.description }}</div>
-                <p class="section-label">Professor(es)</p>
-                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    {% for teacher in course.teacher.all %}
-                        <div class="teach-card"
-                             style="text-align: left; display: flex; align-items: center; gap: 1rem;">
-                            <div class="teach-avatar" style="margin: 0; width: 60px; height: 60px; overflow: hidden;">
-                                {% if teacher.avatar %}
-                                    <img src="{{ teacher.avatar.url }}"
-                                         alt="{{ teacher.full_name }}"
-                                         style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
-                                {% else %}
-                                    {{ teacher.full_name|make_list|first }}
-                                {% endif %}
-                            </div>
-                            <div>
-                                <h3 class="teach-name">{{ teacher }}</h3>
-                                <p class="teach-bio" style="margin-bottom: 0;">{{ teacher.bio }}</p>
-                            </div>
-                        </div>
-                    {% empty %}
-                        <p style="color: #4A3728; font-size: 0.9rem;">
-                            Ainda não existem professores atribuídos a este curso.
-                        </p>
-                    {% endfor %}
+<section class="course">
+    <div class="student-portal-inner">
+        <div>
+            <p class="section-label">Sobre o Curso</p>
+            <h2 class="section-title">Programa e <em>Detalhes</em></h2>
+            <div class="student-portal-body" style="color: #4A3728;">{{ course.description }}</div>
+            <p class="section-label">Professor(es)</p>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                {% for teacher in course.teacher.all %}
+                <div class="teach-card" style="text-align: left; display: flex; align-items: center; gap: 1rem;">
+                    <h3 class="teach-name">{{ teacher }}</h3>
+                    <p class="teach-bio">{{ teacher.bio }}</p>
                 </div>
-            </div>
-            <div class="student-portal-form">
-                <h3 class="form-title">O que vais aprender</h3>
-                <ul class="student-portal-features">
-                    {% for topic in course.topics.all %}
-                        <li style="color: #4A3728;">{{ topic }}</li>
-                    {% empty %}
-                        <li style="color: #4A3728;">Técnica fundamental do instrumento;</li>
-                        <li style="color: #4A3728;">Leitura de partituras e solfejo;</li>
-                        <li style="color: #4A3728;">Repertório adaptado ao teu ritmo;</li>
-                        <li style="color: #4A3728;">Preparação para audições escolares.</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="registration">
-        <div class="contact-grid" style="margin-top: 0;">
-            <div>
-                <p class="section-label">Garante a tua vaga</p>
-                <h2 class="section-title">Inscrição no <em>Curso</em></h2>
-                <p class="student-portal-body" style="color: #4A3728;">
-                    Preenche o formulário para dares início à tua jornada musical.
-                    A nossa equipa entrará em contacto brevemente para te orientar nos próximos passos.
+                {% empty %}
+                <p style="color: #4A3728; font-size: 0.9rem;">
+                    Ainda não existem professores atribuídos a este curso.
                 </p>
-            </div>
-            <div class="contact-form">
-                <form method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="curso_id" value="{{ course.id }}">
-                    <div class="form-group">
-                        <label for="name">Nome completo</label>
-                        <input id="name" type="text" name="name" placeholder="O teu nome completo..." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" type="email" name="email" placeholder="O teu email principal..." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Observações / Experiência Prévia</label>
-                        <textarea id="message" name="message"
-                                  placeholder="Tens alguma dúvida ou já tens experiência com este instrumento?"
-                                  required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar Pedido de Inscrição</button>
-                </form>
+                {% endfor %}
             </div>
         </div>
-    </section>
+        <div class="student-portal-form">
+            <h3 class="form-title">O que vais aprender</h3>
+            <ul class="student-portal-features">
+                {% for topic in course.topic.all %}
+                <li style="color: #4A3728;">{{ topic.name }}</li>
+                {% empty %}
+                <li style="color: #4A3728;">Ainda não existem tópicos atribuídos a este curso.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
 {% endblock %}
