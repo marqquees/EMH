@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia o projeto para dentro do container.
 COPY . .
 
-# Coleta os arquivos estáticos (CSS, JS, Imagens).
+# Coleta os arquivos estáticos (CSS, JS).
 RUN python manage.py collectstatic --noinput
 
 # Inicia o servidor com Gunicorn. O número de workers e threads pode ser ajustado conforme necessário.
